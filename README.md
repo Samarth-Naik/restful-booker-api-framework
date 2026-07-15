@@ -20,4 +20,13 @@ A good answer would be:
 
 "Because the API returns bookingdates as a JSON object containing checkin and checkout. When parsed by Python, a JSON object becomes a dictionary (dict), whereas a JSON array becomes a list."
 -------------------------------------------------------------------
+Interview Question
+
+Q: When do you use json= and when do you use data= in the requests library?
+
+Answer:
+
+Use json= when the API expects a JSON request body. It automatically serializes the dictionary and sets Content-Type: application/json.
+Use data= when the API expects form data, such as application/x-www-form-urlencoded or multipart/form-data.
+-----------------------------------------------------------------
 
