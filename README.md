@@ -43,3 +43,14 @@ In Postman, I typically store the token in an environment variable so subsequent
 
 -------------------------------------------------------------------
 
+Fixture scopes (function, module, session).
+
+---------------------------------------------------------------
+Interview Question
+
+Q: Why use JSON Schema validation instead of individual assertions?
+
+Answer:
+
+JSON Schema validates the entire response structure, required fields, and data types in one place. It reduces repetitive assertions, improves maintainability, and clearly verifies the API contract.
+----------------------------------------------------------------------------------

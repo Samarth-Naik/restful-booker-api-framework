@@ -1,5 +1,7 @@
 from config.config import BASE_URL
 import requests
+from jsonschema import validate
+from schemas.get_update_booking_schema import get_update_booking_schema
 
 def test_partial_update_booking(auth_token,create_booking):
 
@@ -37,3 +39,5 @@ def test_partial_update_booking(auth_token,create_booking):
     assert updated_data["totalprice"] == original_payload["totalprice"]
     assert updated_data["depositpaid"] == original_payload["depositpaid"]
     assert updated_data["bookingdates"] == original_payload["bookingdates"]
+
+    validate(updated_data,schema=get_update_booking_schema)

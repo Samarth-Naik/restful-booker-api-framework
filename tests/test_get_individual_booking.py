@@ -1,5 +1,7 @@
 import requests
 from config.config import BASE_URL
+from jsonschema import validate
+from schemas.get_update_booking_schema import get_update_booking_schema
 
 def test_get_individual_booking():
     response=requests.get(f"{BASE_URL}/booking/2")
@@ -26,3 +28,5 @@ def test_get_individual_booking():
 
     assert isinstance(booking_dates["checkin"], str)
     assert isinstance(booking_dates["checkout"], str)
+    
+    validate(data,schema=get_update_booking_schema)
