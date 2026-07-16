@@ -1,23 +1,9 @@
 import requests
 from config.config import BASE_URL
 
-def test_create_booking():
-    payload={
-    "firstname" : "Michael",
-    "lastname" : "Scofield",
-    "totalprice" : 222,
-    "depositpaid" : True,
-    "bookingdates" : {
-        "checkin" : "2018-01-01",
-        "checkout" : "2019-01-01"
-    },
-    "additionalneeds" : "Breakfast"
-    }
+def test_create_booking(create_booking):
 
-    response=requests.post(f"{BASE_URL}/booking",json=payload)
-
-    assert response.status_code == 200
-    data=response.json()
+    data,payload=create_booking
 
     assert "bookingid" in data
     assert isinstance(data["bookingid"], int)
