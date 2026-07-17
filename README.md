@@ -54,3 +54,69 @@ Answer:
 
 JSON Schema validates the entire response structure, required fields, and data types in one place. It reduces repetitive assertions, improves maintainability, and clearly verifies the API contract.
 ----------------------------------------------------------------------------------
+----schema validation
+pip install jsonschema
+
+    from jsonschema import validate
+    from schemas.booking_schema import booking_schema
+
+    validate(
+        instance=response.json(),
+        schema=booking_schema
+)
+------------------------------------------------------------
+Smoke Testing
+
+"Checking whether important things work."
+
+✅ Correct.
+
+A stronger interview answer would be:
+
+Smoke testing is a small subset of critical test cases executed to verify that the application's core functionality is working and the build is stable enough for further testing.
+
+Examples for your Restful Booker framework:
+
+Health check (GET /ping)
+Authentication (POST /auth)
+Create booking (POST /booking)
+
+If any of these fail, there's little point in running the remaining 200 tests.
+
+Regression Testing
+
+"Check if something is not broken after a fix."
+
+✅ Correct.
+
+A more complete answer:
+
+Regression testing ensures that new code changes, bug fixes, or enhancements have not unintentionally broken existing functionality.
+
+Example:
+
+Developer fixes PATCH API.
+You run the entire CRUD suite to ensure GET, POST, PUT, PATCH, and DELETE still work.
+Sanity Testing
+
+This one often confuses people.
+
+Think of it like this:
+
+Smoke → Is the whole application stable enough to test?
+Sanity → Is the specific change working as expected?
+
+Example:
+
+Developer says:
+
+"I fixed the Update Booking API."
+
+Instead of running everything, you verify:
+
+PUT works
+PATCH still works
+GET returns updated data
+
+That's a sanity test.
+------------------------------------------------------------------------------

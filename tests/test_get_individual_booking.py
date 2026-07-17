@@ -2,7 +2,9 @@ from config.config import BASE_URL
 from jsonschema import validate
 from schemas.get_update_booking_schema import get_update_booking_schema
 from utils.api_client import ApiClient
+import pytest
 
+@pytest.mark.smoke
 def test_get_individual_booking(create_booking):
     
     data,_=create_booking

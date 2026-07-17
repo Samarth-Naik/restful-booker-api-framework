@@ -1,6 +1,8 @@
 from config.config import BASE_URL
 from utils.api_client import ApiClient
+import pytest
 
+@pytest.mark.smoke
 def test_delete_booking(auth_token,create_booking):
 
     headers={

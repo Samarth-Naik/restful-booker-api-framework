@@ -1,10 +1,11 @@
 from config.config import BASE_URL
-import requests
+import pytest
 from jsonschema import validate
 from schemas.get_update_booking_schema import get_update_booking_schema
 from utils.payloads import update_booking_payload
 from utils.api_client import ApiClient
 
+@pytest.mark.smoke
 def test_update_booking(auth_token,create_booking):
 
     data,_=create_booking
