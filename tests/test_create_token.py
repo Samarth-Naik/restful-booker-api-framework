@@ -1,18 +1,10 @@
-import requests
 from config.config import BASE_URL
+from utils.payloads import auth_payload
 
-def test_create_token():
+def test_create_token(auth_token):
 
-    payload={
-    "username" : "admin",
-    "password" : "password123"
-    }
+    response=auth_token
 
-    response=requests.post(f"{BASE_URL}/auth",payload)
-
-    assert response.status_code == 200
-    data=response.json()
-
-    assert "token" in data
-    assert isinstance(data["token"],str)
-    assert data["token"] is not None
+    assert isinstance(response,str)
+    # assert data["token"] is not None
+    assert len(response) > 0

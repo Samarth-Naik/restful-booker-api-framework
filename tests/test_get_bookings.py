@@ -1,8 +1,8 @@
-import requests
 from config.config import BASE_URL
+from utils.api_client import ApiClient
 
 def test_get_bookings():
-    response=requests.get(f"{BASE_URL}/booking")
+    response=ApiClient.get(f"{BASE_URL}/booking")
 
     assert response.status_code == 200
 

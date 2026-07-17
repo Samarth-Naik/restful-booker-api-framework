@@ -1,4 +1,3 @@
-import requests
 from config.config import BASE_URL
 from jsonschema import validate
 from schemas.create_booking_schema import create_booking_schema
