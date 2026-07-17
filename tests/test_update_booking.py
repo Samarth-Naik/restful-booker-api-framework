@@ -2,6 +2,7 @@ from config.config import BASE_URL
 import requests
 from jsonschema import validate
 from schemas.get_update_booking_schema import get_update_booking_schema
+from utils.payloads import update_booking_payload
 
 def test_update_booking(auth_token,create_booking):
 
@@ -9,17 +10,7 @@ def test_update_booking(auth_token,create_booking):
 
     booking_id=data["bookingid"]
 
-    update_payload={
-    "firstname" : "Michael-updated",
-    "lastname" : "Scofield-updated",
-    "totalprice" : 555,
-    "depositpaid" : True,
-    "bookingdates" : {
-        "checkin" : "2018-02-02",
-        "checkout" : "2019-02-02"
-    },
-    "additionalneeds" : "Lunch"
-    }
+    update_payload=update_booking_payload
 
     headers={
         "Cookie":f"token={auth_token}"
